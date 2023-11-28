@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+      <!-- 
+      - primary meta tags
+    -->
+      <title>Sabor Peruano - Rica &amp; Deliciosa Comida</title>
+      <meta name="title" content="Grilli - Amazing &amp; Delicious Food" />
+      <meta
+        name="description"
+        content="This is a Restaurant html template made by codewithsadee"
+      />
+  
+      <!-- 
+      - favicon
+    -->
+      <link
+        rel="shortcut icon"
+        href="{% static './favicon.svg' %}"
+        type="image/svg+xml"
+      />
+  
+      <!-- 
+      - google font link
+    -->
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+      <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&amp;family=Forum&amp;display=swap"
+        rel="stylesheet"
+      />
+  
+      <!-- 
+      - custom css link
+    -->
+      <link rel="stylesheet" href="{% static './assets/css/style.css' %}" />
+  
+      <!-- 
+      - preload images
+    -->
+    </head>
+
+
+<body onload="parent.scrollTo(0,0);">
+    <section class="section about text-center" aria-labelledby="dish-label">
+      <div class="container">
+        
+        <div class="form reservation-form bg-black-10">
+          <form method="post" class="form-left">
+            {% csrf_token %}
+
+            <br>
+            <h2 class="headline-1 text-center">Ingreso Personal</h2>
+            <p>Ingresa tu nombre de usuario y contraseña para acceder al sistema.</p>
+
+            <br>
+            
+            <div class="input-wrapper">
+              <input
+                placeholder="Usuario"
+                autocomplete="off"
+                name="{{ form.username.html_name }}" 
+                value="{{ form.username.|default_if_none:'' }}" 
+                type="text" 
+                class="input-field"
+              />
+
+
+              <input
+              placeholder="Contraseña"
+              maxlength="100" 
+              name="{{ form.password.html_name }}" 
+              value="{{ form.password.|default_if_none:'' }}" 
+              type="password" 
+              class="input-field"
+              />
+
+              <button type="submit" class="btn btn-secondary">
+                <span class="text text-1">Ingresar</span>
+  
+                <span class="text text-2" aria-hidden="true">Ingresar</span>
+              </button>
+            </div>
+
+
+          </form>
+        </div>
+      </div>
+    </section>
+    
+</body>
+</html>
